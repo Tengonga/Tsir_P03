@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msg['book.view.title']}</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <div class="header">
+            <h1>#{msg['book.view.title']}</h1>
+        </div>
+        
+        <div class="content">
+            <h:form>
+                <h:panelGrid columns="2" styleClass="view-grid">
+                    <h:outputLabel value="#{msg['book.title']}:"/>
+                    <h:outputText value="#{libroController.libro.titulo}"/>
+                    
+                    <h:outputLabel value="#{msg['book.isbn']}:"/>
+                    <h:outputText value="#{libroController.libro.isbn}"/>
+                    
+                    <h:outputLabel value="#{msg['book.year']}:"/>
+                    <h:outputText value="#{libroController.libro.anioPublicacion}"/>
+                    
+                    <h:outputLabel value="#{msg['book.language']}:"/>
+                    <h:outputText value="#{libroController.libro.idioma}"/>
+                    
+                    <h:outputLabel value="#{msg['book.pages']}:"/>
+                    <h:outputText value="#{libroController.libro.numPaginas}"/>
+                    
+                    <h:outputLabel value="#{msg['book.synopsis']}:"/>
+                    <h:outputText value="#{libroController.libro.sinopsis}"/>
+                    
+                    <h:outputLabel value="#{msg['book.cover']}:"/>
+                    <h:outputText value="#{libroController.libro.portada}"/>
+                    
+                    <h:outputLabel value="#{msg['book.acquisition.date']}:"/>
+                    <h:outputText value="#{libroController.libro.fechaAdquisicion}">
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:outputText>
+                    
+                    <h:outputLabel value="#{msg['book.status']}:"/>
+                    <h:outputText value="#{libroController.libro.estadoLectura}"/>
+                    
+                    <h:outputLabel value="#{msg['book.rating']}:"/>
+                    <h:outputText value="#{libroController.libro.valoracion}"/>
+                    
+                    <h:outputLabel value="#{msg['book.publisher']}:"/>
+                    <h:outputText value="#{libroController.libro.idEditorial.nombre}"/>
+                    
+                    <h:outputLabel value="#{msg['book.authors']}:"/>
+                    <h:outputText value="#{libroController.getAutoresAsString(libroController.libro)}"/>
+                    
+                    <h:outputLabel value="#{msg['book.genres']}:"/>
+                    <h:outputText value="#{libroController.getGenerosAsString(libroController.libro)}"/>
+                </h:panelGrid>
+                
+                <br/>
+                <h:commandButton value="#{msg['button.edit']}" action="#{libroController.prepareEdit(libroController.libro)}" styleClass="button"/>
+                <h:commandButton value="#{msg['button.back']}" action="libro_list" immediate="true" styleClass="button"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>

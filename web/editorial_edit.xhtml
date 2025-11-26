@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msg['publisher.edit.title']}</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <div class="header">
+            <h1>#{msg['publisher.edit.title']}</h1>
+        </div>
+        
+        <div class="content">
+            <h:form>
+                <h:messages globalOnly="true" styleClass="messages"/>
+                
+                <h:panelGrid columns="2" styleClass="form-grid">
+                    <h:outputLabel value="#{msg['publisher.name']}:" for="nombre"/>
+                    <h:inputText id="nombre" value="#{editorialController.editorial.nombre}" required="true" 
+                                 requiredMessage="#{msg['publisher.name.required']}"/>
+                    
+                    <h:outputLabel value="#{msg['publisher.country']}:" for="pais"/>
+                    <h:inputText id="pais" value="#{editorialController.editorial.pais}"/>
+                    
+                    <h:outputLabel value="#{msg['publisher.website']}:" for="sitioWeb"/>
+                    <h:inputText id="sitioWeb" value="#{editorialController.editorial.sitioWeb}"/>
+                </h:panelGrid>
+                
+                <br/>
+                <h:commandButton value="#{msg['button.save']}" action="#{editorialController.update()}" styleClass="button"/>
+                <h:commandButton value="#{msg['button.cancel']}" action="editorial_list" immediate="true" styleClass="button"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>

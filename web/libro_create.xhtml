@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msg['book.create.title']}</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <div class="header">
+            <h1>#{msg['book.create.title']}</h1>
+        </div>
+        
+        <div class="content">
+            <h:form>
+                <h:messages globalOnly="true" styleClass="messages"/>
+                
+                <h:panelGrid columns="2" styleClass="form-grid">
+                    <h:outputLabel value="#{msg['book.title']}:" for="titulo"/>
+                    <h:inputText id="titulo" value="#{libroController.libro.titulo}" required="true" 
+                                 requiredMessage="#{msg['book.title.required']}"/>
+                    
+                    <h:outputLabel value="#{msg['book.isbn']}:" for="isbn"/>
+                    <h:inputText id="isbn" value="#{libroController.libro.isbn}"/>
+                    
+                    <h:outputLabel value="#{msg['book.year']}:" for="anio"/>
+                    <h:inputText id="anio" value="#{libroController.libro.anioPublicacion}"/>
+                    
+                    <h:outputLabel value="#{msg['book.language']}:" for="idioma"/>
+                    <h:inputText id="idioma" value="#{libroController.libro.idioma}"/>
+                    
+                    <h:outputLabel value="#{msg['book.pages']}:" for="paginas"/>
+                    <h:inputText id="paginas" value="#{libroController.libro.numPaginas}"/>
+                    
+                    <h:outputLabel value="#{msg['book.synopsis']}:" for="sinopsis"/>
+                    <h:inputTextarea id="sinopsis" value="#{libroController.libro.sinopsis}" 
+                                     rows="5" cols="40"/>
+                    
+                    <h:outputLabel value="#{msg['book.cover']}:" for="portada"/>
+                    <h:inputText id="portada" value="#{libroController.libro.portada}"/>
+                    
+                    <h:outputLabel value="#{msg['book.acquisition.date']}:" for="fecha"/>
+                    <h:inputText id="fecha" value="#{libroController.libro.fechaAdquisicion}">
+                        <f:convertDateTime pattern="yyyy-MM-dd"/>
+                    </h:inputText>
+                    
+                    <h:outputLabel value="#{msg['book.status']}:" for="estado"/>
+                    <h:selectOneMenu id="estado" value="#{libroController.libro.estadoLectura}">
+                        <f:selectItem itemValue="pendiente" itemLabel="#{msg['book.status.pending']}"/>
+                        <f:selectItem itemValue="leyendo" itemLabel="#{msg['book.status.reading']}"/>
+                        <f:selectItem itemValue="leido" itemLabel="#{msg['book.status.read']}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{msg['book.rating']}:" for="valoracion"/>
+                    <h:inputText id="valoracion" value="#{libroController.libro.valoracion}"/>
+                    
+                    <h:outputLabel value="#{msg['book.publisher']}:" for="editorial"/>
+                    <h:selectOneMenu id="editorial" value="#{libroController.libro.idEditorial}">
+                        <f:selectItem itemValue="" itemLabel="#{msg['select.option']}"/>
+                        <f:selectItems value="#{libroController.editoriales}" var="ed" 
+                                       itemValue="#{ed}" itemLabel="#{ed.nombre}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{msg['book.authors']}:" for="autores"/>
+                    <h:selectManyListbox id="autores" value="#{libroController.selectedAutores}">
+                        <f:selectItems value="#{libroController.autores}" var="autor" 
+                                       itemValue="#{autor.idAutor}" 
+                                       itemLabel="#{autor.nombre} #{autor.apellidos}"/>
+                    </h:selectManyListbox>
+                    
+                    <h:outputLabel value="#{msg['book.genres']}:" for="generos"/>
+                    <h:selectManyListbox id="generos" value="#{libroController.selectedGeneros}">
+                        <f:selectItems value="#{libroController.generos}" var="gen" 
+                                       itemValue="#{gen.idGenero}" 
+                                       itemLabel="#{gen.nombre}"/>
+                    </h:selectManyListbox>
+                </h:panelGrid>
+                
+                <br/>
+                <h:commandButton value="#{msg['button.save']}" action="#{libroController.create()}" styleClass="button"/>
+                <h:commandButton value="#{msg['button.cancel']}" action="libro_list" immediate="true" styleClass="button"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>

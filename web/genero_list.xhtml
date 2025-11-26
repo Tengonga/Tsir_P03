@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msg['genre.list.title']}</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <div class="header">
+            <h1>#{msg['genre.list.title']}</h1>
+            <h:form>
+                <h:commandLink value="Español" action="#{localeController.changeLanguage('es')}" 
+                               rendered="#{localeController.language != 'es'}"/>
+                <h:outputText value=" | " rendered="#{localeController.language != 'es'}"/>
+                <h:commandLink value="English" action="#{localeController.changeLanguage('en')}" 
+                               rendered="#{localeController.language != 'en'}"/>
+            </h:form>
+        </div>
+        
+        <div class="content">
+            <h:form>
+                <h:messages globalOnly="true" styleClass="messages"/>
+                
+                <h:commandLink value="#{msg['button.new']}" action="#{generoController.prepareCreate()}" styleClass="button"/>
+                <br/><br/>
+                
+                <h:dataTable value="#{generoController.generos}" var="genero" 
+                             styleClass="data-table" headerClass="table-header" 
+                             rowClasses="table-row-odd,table-row-even">
+                    <h:column>
+                        <f:facet name="header">#{msg['genre.name']}</f:facet>
+                        #{genero.nombre}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg['genre.description']}</f:facet>
+                        #{genero.descripcion}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg['actions']}</f:facet>
+                        <h:commandLink value="#{msg['button.view']}" action="#{generoController.prepareView(genero)}"/>
+                        <h:outputText value=" | "/>
+                        <h:commandLink value="#{msg['button.edit']}" action="#{generoController.prepareEdit(genero)}"/>
+                        <h:outputText value=" | "/>
+                        <h:commandLink value="#{msg['button.delete']}" action="#{generoController.delete(genero)}" 
+                                       onclick="return confirm('#{msg['confirm.delete']}');"/>
+                    </h:column>
+                </h:dataTable>
+                
+                <br/>
+                <h:commandLink value="#{msg['button.back']}" action="index" styleClass="button"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>

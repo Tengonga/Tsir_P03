@@ -1,12 +1,41 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>#{msg['app.title']}</title>
+        <h:outputStylesheet library="css" name="style.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <div class="header">
+            <h1>#{msg['app.title']}</h1>
+            <h:form>
+                <h:commandLink value="Español" action="#{localeController.changeLanguage('es')}" 
+                               rendered="#{localeController.language != 'es'}"/>
+                <h:outputText value=" | " rendered="#{localeController.language != 'es'}"/>
+                <h:commandLink value="English" action="#{localeController.changeLanguage('en')}" 
+                               rendered="#{localeController.language != 'en'}"/>
+            </h:form>
+        </div>
+        
+        <div class="content">
+            <h2>#{msg['menu.welcome']}</h2>
+            <h:form>
+                <h:panelGrid columns="2" styleClass="menu-grid">
+                    <h:commandLink value="#{msg['menu.books']}" action="libro_list" styleClass="menu-link"/>
+                    <h:outputText value="#{msg['menu.books.description']}"/>
+                    
+                    <h:commandLink value="#{msg['menu.authors']}" action="autor_list" styleClass="menu-link"/>
+                    <h:outputText value="#{msg['menu.authors.description']}"/>
+                    
+                    <h:commandLink value="#{msg['menu.genres']}" action="genero_list" styleClass="menu-link"/>
+                    <h:outputText value="#{msg['menu.genres.description']}"/>
+                    
+                    <h:commandLink value="#{msg['menu.publishers']}" action="editorial_list" styleClass="menu-link"/>
+                    <h:outputText value="#{msg['menu.publishers.description']}"/>
+                </h:panelGrid>
+            </h:form>
+        </div>
     </h:body>
 </html>
-
