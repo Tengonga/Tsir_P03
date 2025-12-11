@@ -16,6 +16,18 @@
                 <h:outputText value="  " rendered="#{localeController.language != 'es'}"/>
                 <h:commandLink value="English" action="#{localeController.changeLanguage('en')}" 
                                rendered="#{localeController.language != 'en'}"/>
+                
+                <li class="nav-item ms-2">
+                                <h:commandButton value="Iniciar Sesión" 
+                                                action="#{loginBean.login}"
+                                                rendered="#{not loginBean.sesionActiva}"
+                                                styleClass="btn btn-outline-light btn-sm"/>
+
+                                <h:commandButton value="Cerrar Sesión" 
+                                                action="#{loginBean.logout}"
+                                                rendered="#{loginBean.sesionActiva}"
+                                                styleClass="btn btn-outline-light btn-sm"/>
+                </li>
             </h:form>
         </div>
         
