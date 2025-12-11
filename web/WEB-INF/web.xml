@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <context-param>
-        <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Development</param-value>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>Client</param-value>
     </context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
@@ -11,7 +11,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
+        
+        <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -19,64 +20,58 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+        <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
     <security-constraint>
-        <display-name>ConstraintUser</display-name>
+        <display-name>Zona Lectura</display-name>
         <web-resource-collection>
-            <web-resource-name>acceso usuario</web-resource-name>
-            <description/>
-            <url-pattern>/index.xhtml</url-pattern>
-            <url-pattern>/faces/index.xhtml</url-pattern>
+            <web-resource-name>Vistas Publicas para Usuarios</web-resource-name>
+            <description>Paginas de solo lectura</description>
+            
             <url-pattern>/autor_list.xhtml</url-pattern>
-            <url-pattern>/faces/autor_list.xhtml</url-pattern>
             <url-pattern>/autor_view.xhtml</url-pattern>
-            <url-pattern>/faces/autor_view.xhtml</url-pattern>
+            
             <url-pattern>/editorial_list.xhtml</url-pattern>
-            <url-pattern>/faces/editorial_list.xhtml</url-pattern>
             <url-pattern>/editorial_view.xhtml</url-pattern>
-            <url-pattern>/faces/editorial_view.xhtml</url-pattern>
+            
             <url-pattern>/genero_list.xhtml</url-pattern>
-            <url-pattern>/faces/genero_list.xhtml</url-pattern>
             <url-pattern>/genero_view.xhtml</url-pattern>
-            <url-pattern>/faces/genero_view.xhtml</url-pattern>
+            
             <url-pattern>/libro_list.xhtml</url-pattern>
-            <url-pattern>/faces/libro_list.xhtml</url-pattern>
             <url-pattern>/libro_view.xhtml</url-pattern>
-            <url-pattern>/faces/libro_view.xhtml</url-pattern>
-        </web-resource-collection>
+            
+            </web-resource-collection>
+        
         <auth-constraint>
-            <description/>
+            <role-name>adminUser</role-name> 
             <role-name>clientUser</role-name>
         </auth-constraint>
     </security-constraint>
+
     <security-constraint>
-        <display-name>ConstraintAdmin</display-name>
+        <display-name>Zona Admin</display-name>
         <web-resource-collection>
-            <web-resource-name>Vista Admin</web-resource-name>
-            <description/>
+            <web-resource-name>Edicion y Creacion</web-resource-name>
+            <description>Paginas de modificacion de datos</description>
+            
             <url-pattern>/autor_create.xhtml</url-pattern>
-            <url-pattern>/faces/autor_create.xhtml</url-pattern>
             <url-pattern>/autor_edit.xhtml</url-pattern>
-            <url-pattern>/faces/autor_edit.xhtml</url-pattern>
+            
             <url-pattern>/editorial_create.xhtml</url-pattern>
-            <url-pattern>/faces/editorial_create.xhtml</url-pattern>
             <url-pattern>/editorial_edit.xhtml</url-pattern>
-            <url-pattern>/faces/editorial_edit.xhtml</url-pattern>
+            
             <url-pattern>/genero_create.xhtml</url-pattern>
-            <url-pattern>/faces/genero_create.xhtml</url-pattern>
             <url-pattern>/genero_edit.xhtml</url-pattern>
-            <url-pattern>/faces/genero_edit.xhtml</url-pattern>
+            
             <url-pattern>/libro_create.xhtml</url-pattern>
-            <url-pattern>/faces/libro_create.xhtml</url-pattern>
             <url-pattern>/libro_edit.xhtml</url-pattern>
-            <url-pattern>/faces/libro_edit.xhtml</url-pattern>
         </web-resource-collection>
+        
         <auth-constraint>
-            <description/>
             <role-name>adminUser</role-name>
         </auth-constraint>
     </security-constraint>
+
     <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>file</realm-name>
@@ -85,12 +80,12 @@
             <form-error-page>/loginError.xhtml</form-error-page>
         </form-login-config>
     </login-config>
+
     <security-role>
-        <description/>
         <role-name>adminUser</role-name>
     </security-role>
     <security-role>
-        <description/>
         <role-name>clientUser</role-name>
     </security-role>
+
 </web-app>

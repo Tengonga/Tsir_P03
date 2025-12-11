@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.faces.view.ViewScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -20,7 +20,7 @@ import javax.faces.context.FacesContext;
  * @author teovonsu
  */
 @Named(value = "autorController")
-@ViewScoped
+@RequestScoped
 public class AutorController implements Serializable {
     
     @EJB

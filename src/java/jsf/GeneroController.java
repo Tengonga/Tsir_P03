@@ -10,8 +10,8 @@ import jpa.session.GeneroFacade;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -20,7 +20,7 @@ import javax.faces.context.FacesContext;
  * @author teovonsu
  */
 @Named(value = "generoController")
-@ViewScoped
+@RequestScoped
 public class GeneroController implements Serializable {
     
     @EJB

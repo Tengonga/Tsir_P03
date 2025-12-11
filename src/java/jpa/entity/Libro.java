@@ -58,31 +58,31 @@ public class Libro implements Serializable {
     @Column(name = "id_libro")
     private Integer idLibro;
     @Basic(optional = false)
-    //////@NotNull
-    ////@Size(min = 1, max = 200)
+    ////////@NotNull
+    //////@Size(min = 1, max = 200)
     @Column(name = "titulo")
     private String titulo;
-    ////@Size(max = 20)
+    //////@Size(max = 20)
     @Column(name = "isbn")
     private String isbn;
     @Column(name = "anio_publicacion")
     private Integer anioPublicacion;
-    ////@Size(max = 30)
+    //////@Size(max = 30)
     @Column(name = "idioma")
     private String idioma;
     @Column(name = "num_paginas")
     private Integer numPaginas;
     @Lob
-    ////@Size(max = 65535)
+    //////@Size(max = 65535)
     @Column(name = "sinopsis")
     private String sinopsis;
-    ////@Size(max = 255)
+    //////@Size(max = 255)
     @Column(name = "portada")
     private String portada;
     @Column(name = "fecha_adquisicion")
     @Temporal(TemporalType.DATE)
     private Date fechaAdquisicion;
-    ////@Size(max = 9)
+    //////@Size(max = 9)
     @Column(name = "estado_lectura")
     private String estadoLectura;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
