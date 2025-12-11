@@ -45,20 +45,20 @@ public class Autor implements Serializable {
     @Column(name = "id_autor")
     private Integer idAutor;
     @Basic(optional = false)
-    //@NotNull
-    //@Size(min = 1, max = 50)
+    //////@NotNull
+    ////@Size(min = 1, max = 50)
     @Column(name = "nombre")
     private String nombre;
     @Basic(optional = false)
-    //@NotNull
-    //@Size(min = 1, max = 100)
+    //////@NotNull
+    ////@Size(min = 1, max = 100)
     @Column(name = "apellidos")
     private String apellidos;
-    //@Size(max = 50)
+    ////@Size(max = 50)
     @Column(name = "nacionalidad")
     private String nacionalidad;
     @Lob
-    //@Size(max = 65535)
+    ////@Size(max = 65535)
     @Column(name = "biografia")
     private String biografia;
     @ManyToMany(mappedBy = "autorCollection")

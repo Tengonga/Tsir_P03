@@ -44,14 +44,14 @@ public class Editorial implements Serializable {
     @Column(name = "id_editorial")
     private Integer idEditorial;
     @Basic(optional = false)
-    //@NotNull
-    //@Size(min = 1, max = 100)
+    //////@NotNull
+    ////@Size(min = 1, max = 100)
     @Column(name = "nombre")
     private String nombre;
-    //@Size(max = 50)
+    ////@Size(max = 50)
     @Column(name = "pais")
     private String pais;
-    //@Size(max = 200)
+    ////@Size(max = 200)
     @Column(name = "sitio_web")
     private String sitioWeb;
     @OneToMany(mappedBy = "idEditorial")

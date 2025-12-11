@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>LoginError - Library</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <div class="alert alert-danger text-start" role="alert">
+                <strong>Access Denied:</strong> Please enter a user name and password that is authorized 
+                to access this application. For this application, this means a user that has been 
+                created in the file realm and has been assigned to the group of <strong>clientUser or adminUser</strong>.
+            </div>
+            
+            <!-- Botón para volver - VERSIÓN CORREGIDA -->
+            <h:button value="Back to Login" outcome="login" styleClass="btn btn-primary"/>
+            
+            <div class="mt-4">
+                <small class="text-muted">Need help? Contact the administrator</small>
+            </div>
+    </h:body>
+</html>
+

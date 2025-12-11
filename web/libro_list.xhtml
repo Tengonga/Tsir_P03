@@ -13,7 +13,7 @@
             <h:form>
                 <h:commandLink value="Español" action="#{localeController.changeLanguage('es')}" 
                                rendered="#{localeController.language != 'es'}"/>
-                <h:outputText value=" | " rendered="#{localeController.language != 'es'}"/>
+                <h:outputText value="  " rendered="#{localeController.language != 'es'}"/>
                 <h:commandLink value="English" action="#{localeController.changeLanguage('en')}" 
                                rendered="#{localeController.language != 'en'}"/>
             </h:form>

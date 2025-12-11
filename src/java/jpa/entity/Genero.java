@@ -43,12 +43,12 @@ public class Genero implements Serializable {
     @Column(name = "id_genero")
     private Integer idGenero;
     @Basic(optional = false)
-    //@NotNull
-    //@Size(min = 1, max = 50)
+    //////@NotNull
+    ////@Size(min = 1, max = 50)
     @Column(name = "nombre")
     private String nombre;
     @Lob
-    //@Size(max = 65535)
+    ////@Size(max = 65535)
     @Column(name = "descripcion")
     private String descripcion;
     @ManyToMany(mappedBy = "generoCollection")
