@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msg['author.create.title']}</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <div class="header">
+            <h1>#{msg['author.create.title']}</h1>
+        </div>
+        
+        <div class="content">
+            <h:form>
+                <h:messages globalOnly="true" styleClass="messages"/>
+                
+                <h:panelGrid columns="2" styleClass="form-grid">
+                    <h:outputLabel value="#{msg['author.name']}:" for="nombre"/>
+                    <h:inputText id="nombre" value="#{autorController.autor.nombre}" required="true" 
+                                 requiredMessage="#{msg['author.name.required']}"/>
+                    
+                    <h:outputLabel value="#{msg['author.lastname']}:" for="apellidos"/>
+                    <h:inputText id="apellidos" value="#{autorController.autor.apellidos}" required="true" 
+                                 requiredMessage="#{msg['author.lastname.required']}"/>
+                    
+                    <h:outputLabel value="#{msg['author.nationality']}:" for="nacionalidad"/>
+                    <h:inputText id="nacionalidad" value="#{autorController.autor.nacionalidad}"/>
+                    
+                    <h:outputLabel value="#{msg['author.biography']}:" for="biografia"/>
+                    <h:inputText id="biografia" value="#{autorController.autor.biografia}"/>
+                </h:panelGrid>
+                
+                <br/>
+                <h:commandButton value="#{msg['button.save']}" action="#{autorController.create()}" styleClass="button"/>
+                <h:commandButton value="#{msg['button.cancel']}" action="autor_list" immediate="true" styleClass="button"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+
