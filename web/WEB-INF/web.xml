@@ -22,7 +22,7 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
-    <security-constraint>
+     <!--<security-constraint>
         <display-name>Zona Lectura</display-name>
         <web-resource-collection>
             <web-resource-name>Vistas Publicas para Usuarios</web-resource-name>
@@ -46,9 +46,9 @@
             <role-name>adminUser</role-name> 
             <role-name>clientUser</role-name>
         </auth-constraint>
-    </security-constraint>
+    </security-constraint>-->
 
-    <security-constraint>
+    <!-- <security-constraint>
         <display-name>Zona Admin</display-name>
         <web-resource-collection>
             <web-resource-name>Edicion y Creacion</web-resource-name>
@@ -70,7 +70,7 @@
         <auth-constraint>
             <role-name>adminUser</role-name>
         </auth-constraint>
-    </security-constraint>
+    </security-constraint>-->
 
     <login-config>
         <auth-method>FORM</auth-method>
