@@ -22,55 +22,45 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
-     <!--<security-constraint>
+    <security-constraint>
         <display-name>Zona Lectura</display-name>
         <web-resource-collection>
             <web-resource-name>Vistas Publicas para Usuarios</web-resource-name>
             <description>Paginas de solo lectura</description>
-            
+            <url-pattern>/index.xhtml</url-pattern>
             <url-pattern>/autor_list.xhtml</url-pattern>
             <url-pattern>/autor_view.xhtml</url-pattern>
-            
             <url-pattern>/editorial_list.xhtml</url-pattern>
             <url-pattern>/editorial_view.xhtml</url-pattern>
-            
             <url-pattern>/genero_list.xhtml</url-pattern>
             <url-pattern>/genero_view.xhtml</url-pattern>
-            
             <url-pattern>/libro_list.xhtml</url-pattern>
             <url-pattern>/libro_view.xhtml</url-pattern>
-            
-            </web-resource-collection>
-        
+        </web-resource-collection>
         <auth-constraint>
-            <role-name>adminUser</role-name> 
+            <role-name>adminUser</role-name>
             <role-name>clientUser</role-name>
         </auth-constraint>
-    </security-constraint>-->
+    </security-constraint>
 
-    <!-- <security-constraint>
+    <security-constraint>
         <display-name>Zona Admin</display-name>
         <web-resource-collection>
             <web-resource-name>Edicion y Creacion</web-resource-name>
             <description>Paginas de modificacion de datos</description>
-            
             <url-pattern>/autor_create.xhtml</url-pattern>
             <url-pattern>/autor_edit.xhtml</url-pattern>
-            
             <url-pattern>/editorial_create.xhtml</url-pattern>
             <url-pattern>/editorial_edit.xhtml</url-pattern>
-            
             <url-pattern>/genero_create.xhtml</url-pattern>
             <url-pattern>/genero_edit.xhtml</url-pattern>
-            
             <url-pattern>/libro_create.xhtml</url-pattern>
             <url-pattern>/libro_edit.xhtml</url-pattern>
         </web-resource-collection>
-        
         <auth-constraint>
             <role-name>adminUser</role-name>
         </auth-constraint>
-    </security-constraint>-->
+    </security-constraint>
 
     <login-config>
         <auth-method>FORM</auth-method>
